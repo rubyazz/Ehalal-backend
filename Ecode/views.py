@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, filters
 
 from .models import Code
 from .serializer import EcodeSerializer
@@ -9,3 +9,6 @@ from .serializer import EcodeSerializer
 class EcodeAPIList(generics.ListCreateAPIView):
     queryset = Code.objects.all()
     serializer_class = EcodeSerializer
+
+    search_fields = ['name', 'description', ]
+    filter_backends = (filters.SearchFilter,)

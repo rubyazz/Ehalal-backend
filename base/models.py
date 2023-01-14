@@ -30,13 +30,14 @@ class ProductList(models.Model):
 
 
 class ProductItem(models.Model):
+    name = models.CharField(max_length=200, null=True)
     prod = models.ManyToManyField(ProductList, related_name='prod')
     description = models.TextField()
     status = models.CharField(max_length=300)
     img = models.ImageField(null=True, upload_to='product_images/')
 
     def __str__(self):
-        return self.prod
+        return str(self.prod)
 
     class Meta:
         verbose_name = "Информация про продукт"

@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import ProductList, ProductGen, ProductItem
+
+admin.site.register(ProductGen)
+admin.site.register(ProductList)
+admin.site.register(ProductItem)
+
